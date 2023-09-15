@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="TaskManager/public/style.css">
+</head>
+<body>
+    <h1 class="title">Notily Task Manager</h1>
+
+    <form class="note-maker" action="/addTask" method="POST">
+        <input class="note" type="text" name="task" placeholder="Enter a task">
+        <button class="add" type="submit">Add Task</button>
+    </form>
+
+    <ul class="note-container">
+        <% tasks.forEach(task => { %>
+            <li>
+                <%= task.text %>
+
+                <button class="editBttn" type="submit">
+                    <a href="/edit/<%= task.id %>">Edit</a>
+                </button>
+                <button class="delBttn" type="submit">
+                    <a href="/delete/<%= task.id %>">Delete</a>
+                </button>
+
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
